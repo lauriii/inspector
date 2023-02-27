@@ -1,0 +1,29 @@
+<?php
+
+function inspector_preprocess_block(&$variables) {
+  $variables['attributes']['data-drupal-inspector-id'] = 'Block (id: ' . $variables['plugin_id'] . ')';
+  $variables['attributes']['data-drupal-inspector-type'] = 'block';
+  $variables['#attached']['library'][] = 'inspector/inspector';
+}
+
+function inspector_entity_view_alter(&$build, $type) {
+  $build['#attributes']['data-drupal-inspector-id'] = sprintf('Entity (type: %s, bundle: %s, view mode: %s)', $type->getEntityTypeId(), $type->bundle(), $build['#view_mode']);
+  $build['#attributes']['data-drupal-inspector-type'] = 'entity';
+  $build['#attached']['library'][] = 'inspector/inspector';
+}
+
+function inspector_preprocess_field(&$variables) {
+  $variables['attributes']['data-drupal-inspector-id'] = sprintf('Field (field name: %s, field type: %s)', $variables['field_name'], $variables['field_type']);
+  $variables['attributes']['data-drupal-inspector-type'] = 'field';
+  $variables['attached']['library'][] = 'inspector/inspector';
+}
+
+function inspector_preprocess_page(&$variables) {
+ // xdebug_break();
+  $regions = \Drupal\Core\Render\Element::children($variables['page']);
+//  foreach ($regions as $region) {
+//    $variables['page'][$region]['attributes']['data-drupal-inspector-id'] = sprintf('Field (field name: %s, field type: %s)', $variables['field_name'], $variables['field_type']);
+//    $variables['page'][$region]['attributes']['data-drupal-inspector-type'] = 'field';
+//    $variables['page'][$region]['attached']['library'][] = 'inspector/inspector';
+//  }
+}

@@ -1,0 +1,11 @@
+inspector:
+  version: VERSION
+  css:
+    theme:
+      css/inspector.css: {}
+  js:
+    inspector.js: {}
+  dependencies:
+    - core/once
+    - core/drupal
+    - core/drupal.checkbox

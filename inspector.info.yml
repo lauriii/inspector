@@ -1,0 +1,5 @@
+name: Inspector
+type: module
+description: 'Allows inspecting blocks etc'
+package: Development
+core_version_requirement: ^9 || ^10

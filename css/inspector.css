@@ -1,0 +1,36 @@
+[data-drupal-selector="inspector"] {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  background: white;
+  padding: 2rem;
+  border: 1px solid grey;
+}
+
+[data-drupal-selector="inspector"] input {
+  margin-inline-end: 5px;
+}
+
+[data-drupal-selector="inspector"] label {
+  text-transform: capitalize;
+}
+
+[data-drupal-inspector-block="true"] [data-drupal-inspector-type="block"],
+[data-drupal-inspector-entity="true"] [data-drupal-inspector-type="entity"],
+[data-drupal-inspector-field="true"] [data-drupal-inspector-type="field"] {
+  border: 3px dashed black;
+  margin: 1px;
+}
+
+[data-drupal-inspector-block="true"] [data-drupal-inspector-type="block"]:before,
+[data-drupal-inspector-entity="true"] [data-drupal-inspector-type="entity"]:before,
+[data-drupal-inspector-field="true"] [data-drupal-inspector-type="field"]:before {
+  display: block;
+  content: attr(data-drupal-inspector-id);
+  background: black;
+  color: white;
+  padding: 5px;
+  font-size: 14px;
+  text-align: left;
+}
+
